@@ -1,28 +1,29 @@
 let input = document.getElementById('inputBox');
 let buttons = document.querySelectorAll('button');
-let string = "";
+let strings = "";
 let arr = Array.from(buttons);
 
-
-arr.forEach(button => {
-    button.addEventListener('click', (e) => {
-        if (e.target.innerHTML == '=') {
-            let result = eval(string);
-            input.value = string;
-            string =result.toString();
+arr.forEach(button =>{
+    button.addEventListener("click", (e) =>{
+        if(e.target.innerHTML == '='){
+            strings = eval(strings)
+            input.value = strings
         }
-        else if (e.target.innerHTML == 'AC') {
-            string = "";
-            input.value = string;
+        else if(e.target.innerHTML == 'AC'){
+            strings='';
+            input.value = strings
         }
-        else if (e.target.innerHTML == 'DEL') {
-            string = string.substring(0, string.length-1);
-            input.value = string;
+        else if(e.target.innerHTML == 'DEL'){
+            strings= strings.substring(0, strings.length-1);
+            input.value =strings;
+    
         }
-        else {
-            string += e.target.innerHTML;
-            input.value = string;
+        else{
+             strings += e.target.innerHTML;
+             input.value = strings
         }
 
     })
-});
+})
+
+
